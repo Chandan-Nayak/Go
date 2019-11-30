@@ -1,6 +1,6 @@
 # Go learning material
 
-![](img/2019-11-30-11-50-41.png)
+![Gologo](img/2019-11-30-11-50-41.png)
 
 ## Why Go
 
@@ -11,4 +11,7 @@
 
 ## Links
 
+- [A short Go-tour](https://tour.golang.org/basics/1)
+- [Go-Playground](https://play.golang.org/)
+- [Go-HowToWrite](https://golang.org/doc/code.html)
 - [Idiomatic-Go](https://dmitri.shuralyov.com/idiomatic-go)
