@@ -32,7 +32,10 @@
 # Ignore all local history of files
 .history
 
+### IDEA ###
+.idea
 
 ### Current Project ###
 /doc
 /pkg
+/bin
