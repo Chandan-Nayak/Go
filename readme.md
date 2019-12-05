@@ -2,7 +2,7 @@
 
 ![Gologo](img/2019-11-30-11-50-41.png)
 
-## Why Go
+## Why Go ?
 
 - Fast Results
 - Strongly and statically typed
