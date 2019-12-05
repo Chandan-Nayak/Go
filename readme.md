@@ -7,7 +7,7 @@
 - Fast Results
 - Strongly and statically typed
 - It’s concise, explicit and easy to read
-- Built-in support for multi-core applications
+- Built-in support new age multi-core applications
 
 ## Links
 
