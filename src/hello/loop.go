@@ -6,22 +6,41 @@ func main() {
 
 	i := 0
 	for i < 10 {
-		fmt.Print(i)
+		fmt.Println(i)
 		i++
 	}
 
 	/*
 		$ go run loop.go
-		0123456789
+		0
+		1
+		2
+		3
+		4
+		5
+		6
+		7
+		8
+		9
+
 	*/
 
 	for i := 0; i < 10; i++ {
-		fmt.Print(i)
+		fmt.Println(i)
 	}
 
 	/*
 		$ go run loop.go
-		0123456789
+		0
+		1
+		2
+		3
+		4
+		5
+		6
+		7
+		8
+		9
 	*/
 
 	// Odd Numbers using continue
@@ -29,12 +48,16 @@ func main() {
 		if i%2 == 0 {
 			continue
 		}
-		fmt.Print(i)
+		fmt.Println(i)
 	}
 
 	/*
 		$ go run loop.go
-		13579
+		1
+		3
+		5
+		7
+		9
 	*/
 
 	breakCount := 5
