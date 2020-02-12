@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"sort"
 	"github.com/Chandan-Nayak/Go/lib"
+	"sort"
 )
 
 /*
@@ -86,7 +86,7 @@ func main() {
 	solutions = append(solutions, solutionOne, solutionTwo, solutionThree)
 
 	for _, fc := range solutions {
-		fmt.Printf("%s > %d\n", GetFuncName(fc), fc(input{numbers: input1, sum: sum1}))
+		fmt.Printf("%s > %d\n", lib.GetFuncName(fc), fc(input{numbers: input1, sum: sum1}))
 	}
 
 }
