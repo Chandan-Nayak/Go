@@ -4,13 +4,8 @@ import (
 	"fmt"
 	"github.com/Chandan-Nayak/Go/lib"
 	"sort"
+	"time"
 )
-
-/*
-Find a pair of number from collection of numbers which is equal to a sum/number
-    example: [1,2,3,4] > sum = 5 > True
-    example: [1,2,6,5] > sum = 5 > False
-*/
 
 type input struct {
 	numbers []int
@@ -45,7 +40,7 @@ func solutionTwo(i input) []int {
 		val, ok := dict[num]
 		if ok {
 			result = append(result, val, num)
-			return result
+			//return result
 		} else {
 			dict[diff] = num
 		}
@@ -62,31 +57,51 @@ func solutionThree(i input) []int {
 	lower := 0
 	upper := len(numbers) - 1
 
-	for lower < upper {
+	for upper > 0 {
+
 		if numbers[lower]+numbers[upper] == sum {
 			result = append(result, numbers[upper], numbers[lower])
-			return result
-			break
+			if upper-lower == 1 {
+				break
+			}
+			upper = upper - 1
+			lower = lower + 1
+			//return result
+			//break
 		} else {
+			if upper-lower == 1 {
+				break
+			}
 			if numbers[lower]+numbers[upper] > sum {
 				upper = upper - 1
 			} else {
 				lower = lower + 1
 			}
 		}
+
 	}
 	return result
 }
 
 func main() {
-	input1 := []int{3, 5, -4, 8, 11, 1, -1, 6}
-	sum1 := 10
+
+	currentInput := input{
+		numbers: lib.Unique(lib.GenerateRandomSlice(10)),
+		sum:     lib.GenerateRandomNumber(2),
+	}
 
 	var solutions []func(i input) []int
 	solutions = append(solutions, solutionOne, solutionTwo, solutionThree)
 
+	var allElapsedTime = make(map[time.Duration]string)
 	for _, fc := range solutions {
-		fmt.Printf("%s > %d\n", lib.GetFuncName(fc), fc(input{numbers: input1, sum: sum1}))
+		start := time.Now()
+		functionName := lib.GetFuncName(fc)
+		fmt.Printf("%s > ArrayLength: %d, SUM: %d, PAIR_Count: %d\n",
+			functionName, len(currentInput.numbers), currentInput.sum, len(fc(currentInput)))
+		elapsed := time.Since(start)
+		allElapsedTime[elapsed] = functionName
 	}
+	lib.GetTimeComparission(allElapsedTime)
 
 }
