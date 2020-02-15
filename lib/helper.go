@@ -35,9 +35,9 @@ func GenerateRandomSlice(size int) []int {
 	return slice
 }
 
-func GenerateRandomNumber(size int) int {
+func GenerateRandomNumber(max int) int {
 	rand.Seed(time.Now().UnixNano())
-	return rand.Intn(size)
+	return rand.Intn(max)
 }
 
 func TimeTrack(start time.Time, name string) {
@@ -45,7 +45,7 @@ func TimeTrack(start time.Time, name string) {
 	fmt.Printf("%s > %s\n\n", name, elapsed)
 }
 
-func GetTimeComparission(m map[time.Duration]string) {
+func GetTimeComparision(m map[time.Duration]string) {
 	var keys []time.Duration
 	for key := range m {
 		keys = append(keys, key)
@@ -53,6 +53,6 @@ func GetTimeComparission(m map[time.Duration]string) {
 	sort.Slice(keys, func(i, j int) bool { return keys[i] < keys[j] })
 
 	for i, key := range keys {
-		fmt.Printf("\nFunction: %s Time: %v Times: %.2v Times",m[key], keys[i], keys[i].Seconds()/keys[0].Seconds())
+		fmt.Printf("Function: %s Time: %v Times: %.2v Times\n",m[key], keys[i], keys[i].Seconds()/keys[0].Seconds())
 	}
 }

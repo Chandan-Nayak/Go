@@ -86,9 +86,11 @@ func solutionThree(i input) []int {
 func main() {
 
 	currentInput := input{
-		numbers: lib.Unique(lib.GenerateRandomSlice(10)),
-		sum:     lib.GenerateRandomNumber(2),
+		numbers: lib.Unique(lib.GenerateRandomSlice(20)),
+		sum:     lib.GenerateRandomNumber(15),
 	}
+
+	fmt.Println("Input: ", currentInput.numbers)
 
 	var solutions []func(i input) []int
 	solutions = append(solutions, solutionOne, solutionTwo, solutionThree)
@@ -97,11 +99,11 @@ func main() {
 	for _, fc := range solutions {
 		start := time.Now()
 		functionName := lib.GetFuncName(fc)
-		fmt.Printf("%s > ArrayLength: %d, SUM: %d, PAIR_Count: %d\n",
-			functionName, len(currentInput.numbers), currentInput.sum, len(fc(currentInput)))
+		fmt.Printf("%s > ArrayLength: %d, SUM: %d, PAIRS: %d\n",
+			functionName, len(currentInput.numbers), currentInput.sum, fc(currentInput))
 		elapsed := time.Since(start)
 		allElapsedTime[elapsed] = functionName
 	}
-	lib.GetTimeComparission(allElapsedTime)
+	lib.GetTimeComparision(allElapsedTime)
 
 }
